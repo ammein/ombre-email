@@ -1,0 +1,39 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+## Table of Contents
+- [Code Blocks](#code-blocks)
+- [Documentation](#documentation)
+    - [Send Grid](#send-grid)
+  - [conf.json](#confjson)
+
+# Code Blocks
+
+<Canvas>
+  <Story name="Dark Desktop" id="header--dark-header-desktop" />
+</Canvas>
+
+<Canvas>
+  <Story name="Light Desktop" id="header--light-header-desktop" />
+</Canvas>
+
+# Documentation
+
+### Send Grid
+Send grid already have substitution tags ready to use. This **`{{Weblink}}`** will always be a link to browser when clicked.
+[Substitution Tags Reference](https://docs.sendgrid.com/ui/sending-email/editor#substitution-tags)
+```html
+<a href="{{Weblink}}" class="link" target="_blank">view in browser</span>
+```
+
+## conf.json
+
+You can change logo url and logo alt in your `conf.json` file:
+
+```json
+{
+  ...
+  "logoUrl": "https://ombre-email-template-files.s3.ap-southeast-1.amazonaws.com/Images/logo-alt-v-2-default%403x.png",
+  "logoAlt": "Ombré",
+}
+```
+> This logo url is in @3x size. I already set the `width` & `height` according to design so that it does preview scaled images in all email clients. It will always display in **`width="151.8" height="48.2"`** size. If you wish to change, change them in `header.inc.html` file.

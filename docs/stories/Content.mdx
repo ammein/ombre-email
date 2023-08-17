@@ -1,0 +1,57 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import ContentImg from './assets/content.png';
+import ExtraContentImg from './assets/extra-content.png';
+
+export const ContentImgSource = {
+  src: ContentImg,
+  alt: 'Content Example',
+};
+
+export const ExtraContentImgSource = {
+  src: ExtraContentImg,
+  alt: 'Extra Content Example'
+}
+
+## Table of Contents
+- [Documentation](#documentation)
+  - [conf.json](#confjson)
+
+## Code Blocks
+
+<Canvas>
+  <Story name="Dark Content" id="content--dark-content" />
+</Canvas>
+
+<Canvas>
+  <Story name="Light Content" id="content--light-content" />
+</Canvas>
+
+# Documentation
+
+## conf.json
+
+Insert this value in your `conf.json` file:
+```json
+{
+  ...
+  "title": "Elit aute in velit veniam voluptate adipisicing dolore velit non aute ipsum et magna ad.",
+  "description": "Qui velit mollit amet officia adipisicing. Aliqua nostrud consectetur ea elit quis dolor. Incididunt eiusmod veniam sint nisi magna ut. Dolor irure in aute incididunt laborum ex minim exercitation. Cupidatat id deserunt tempor veniam excepteur ea minim fugiat laboris reprehenderit pariatur ex et in. Ad labore aute qui adipisicing irure mollit excepteur qui. Dolore labore aliquip reprehenderit adipisicing ullamco ullamco aliquip exercitation enim id sint consectetur quis.",
+}
+```
+<img src={ContentImgSource.src} alt={ContentImgSource.alt} height="200"/>
+
+You may also insert additional context after a button for an extra description based on design
+```json
+{
+  ...
+  "title": "Elit aute in velit veniam voluptate adipisicing dolore velit non aute ipsum et magna ad.",
+  "description": "Qui velit mollit amet officia adipisicing. Aliqua nostrud consectetur ea elit quis dolor. Incididunt eiusmod veniam sint nisi magna ut. Dolor irure in aute incididunt laborum ex minim exercitation. Cupidatat id deserunt tempor veniam excepteur ea minim fugiat laboris reprehenderit pariatur ex et in. Ad labore aute qui adipisicing irure mollit excepteur qui. Dolore labore aliquip reprehenderit adipisicing ullamco ullamco aliquip exercitation enim id sint consectetur quis.",
+
+  "extraTitle": "Sint cillum deserunt eu excepteur dolor Lorem in.",
+  "extraDescription": "Magna irure minim exercitation ad excepteur dolore nostrud in in enim qui aute. Deserunt amet qui pariatur eu est sunt ut dolor pariatur. Pariatur quis proident aliquip officia aliquip veniam esse ullamco nisi officia. Consequat mollit incididunt reprehenderit ut reprehenderit occaecat fugiat qui ex proident velit do. Nisi minim fugiat nostrud fugiat qui qui. Dolor tempor ad deserunt nostrud tempor voluptate. Nostrud aliquip adipisicing qui labore anim proident eu quis velit amet aliquip irure duis eiusmod."
+}
+```
+
+> As you can see, you can put an `extraTitle` as well for the second description. **It is not mandatory**
+
+<img src={ExtraContentImgSource.src} alt={ExtraContentImgSource.alt} height="300"/>

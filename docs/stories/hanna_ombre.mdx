@@ -1,0 +1,51 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { darkHanna } from "./hanna_ombre.stories.js";
+
+### Table of Contents
+- [Code Blocks](#code-blocks)
+- [Documentation](#documentation)
+  - [HTML Explained](#html-explained)
+    - [v:oval reference <br/>](#voval-reference-)
+  - [conf.json](#confjson)
+
+## Code Blocks
+
+<Canvas>
+    <Story name="Dark Hanna Ombré" id="hanna-ombre--dark-hanna"/>
+</Canvas>
+
+<Canvas>
+    <Story name="Light Hanna Ombré" id="hanna-ombre--light-hanna"/>
+</Canvas>
+
+## Documentation
+
+### HTML Explained
+```html
+<v:oval style="width:56;height:56">
+    <v:fill src="/Hanna.jpeg" style="width:56;height:56" type="frame">
+    </v:fill>
+</v:oval>
+```
+#### [v:oval reference](https://docs.microsoft.com/en-us/windows/win32/vml/msdn-online-vml-oval-element) <br/>
+`v:oval` will create an oval shape with width & height of `56px`. Also filled it with image src using `frame` type.
+
+```html
+<!--[if !mso]>-->
+<img src="<!-- @echo author-image -->" alt="<!-- @echo author-alt -->" style="width:50px;"
+        class="Avatar">
+<!-- Issue if not mso stripped 
+    https://stackoverflow.com/questions/5982364/is-there-a-html-conditional-statement-for-everything-not-outlook -->
+<!--<![endif]-->
+```
+
+The code above only runs if the email sent to, is not Outlook.
+
+### conf.json
+
+```json
+{
+    "author-image": "Your-url-link-image-here.png",
+    "author-alt": "Your alt image"
+}
+```

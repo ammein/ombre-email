@@ -1,0 +1,28 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { darkHanna } from "./hanna_ombre.stories.js";
+
+### Table of Contents
+- [Code Blocks](#code-blocks)
+- [VML Docs](#vml-docs)
+
+## Code Blocks
+
+<Canvas>
+    <Story name="Dark Hanna Ombré" id="download--dark-download"/>
+</Canvas>
+
+<Canvas>
+    <Story name="Light Hanna Ombré" id="download--light-download"/>
+</Canvas>
+
+## VML Docs
+As you can see from the code below, this will be only appear on Outlook HTML emails so that it display correctly on VML layout:
+
+```html
+<!--[if (gte mso 9)|(IE)]>
+    <v:roundrect style="width:95;height:28" arcsize="5%" stroke="false">
+        <v:fill src="<!-- @echo google-play -->" style="width:95;height:28" type="frame">
+    </v:fill>
+    </v:roundrect>
+<![endif]-->
+```

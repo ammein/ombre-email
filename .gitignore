@@ -1,0 +1,10 @@
+/vendor/
+/node_modules/
+/tmp/
+.DS_Store
+/dist
+IDEAS.md
+npm_debug.log
+.sass-cache
+npm-debug.log
+/docs-build/

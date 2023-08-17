@@ -1,0 +1,30 @@
+@import ../../global
+
+// Button Blend
+.gmail-blend-screen
+    mix-blend-mode: screen
+
+u + .body .gmail-blend-screen
+    color: $text-color-dark-mode
+    background: #000
+
+.gmail-blend-difference
+    mix-blend-mode: difference
+
+u + .body .gmail-blend-difference
+    color: $text-color-dark-mode
+    background: #000
+
+.Button
+    padding: 9px 50px
+    text-decoration: none
+    text-align: center
+    color: $mode-light-light
+    display: table-cell
+    cursor: pointer
+    border-radius: 64px
+    @include vendor-prefix(background, linear-gradient(to right, $brand-1 0%, $brand-2 18%, $brand-3 47%, $brand-4 87%, $brand-5 97%))
+    // To fix Yahoo Targeting
+    @include vendor-prefix(background-color, #e5333b)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{$brand-1}, endColorstr=#{$brand-5}, GradientType=1 )
+    +Poppins-Bold-14px()

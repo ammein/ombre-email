@@ -1,0 +1,174 @@
+/* Color Pallete */
+$link: #593c8f
+$brand-2: #f26322
+$brand-1: #f89825
+$text-color-dark-mode: #fffcf2
+$brand-5: #a91e5e
+$mode-light-light: #fdfffc
+$mode-light-shade-1: #e8e8e8
+$mode-light-shade-2: #d4d4d4
+$mode-light-shade-3: #bfbfbf
+$brand-3: #e5333b
+$mode-dark-dark: #040303
+$mode-dark-shade-1: #171111
+$mode-dark-shade-2: #2f2323
+$widget-dark-background: rgba(4, 3, 3, 0.6)
+$mode-dark-shade-3: #463434
+$brand-4: #c81d5e
+$widget-light-background: rgba(253, 255, 252, 0.6)
+$font-path: "https://ombre-email-template-files.s3.ap-southeast-1.amazonaws.com/Fonts/"
+
+// Helpers
+$VENDORS: webkit, moz, ms, o
+@mixin vendor-prefix($property, $values...)
+  @each $vendor in $VENDORS
+    -#{$vendor}-#{$property}: $values
+  #{$property}: $values
+
+@mixin vendor-function($property, $func, $args...)
+  @each $vendor in $VENDORS
+    #{$property}: -#{$vendor}-#{$func}($args)
+  #{$property}: $func($args)
+
+/* Font */
+@font-face
+  font-family: "PlayfairDisplay-Bold"
+  src: local(PlayfairDisplay-Bold), url($font-path + "PlayfairDisplay-Bold.ttf") format("truetype")
+  font-weight: 700
+  font-style: normal
+  font-stretch: normal
+
+@font-face
+  font-family: "Poppins-Regular"
+  src: local(Poppins-Regular), url($font-path + "Poppins-Regular.ttf") format("truetype")
+  font-weight: normal
+  font-style: normal
+  font-stretch: normal
+
+@font-face
+  font-family: "Poppins-Bold"
+  src: local(Poppins-Bold), url($font-path + "Poppins-Bold.ttf") format("truetype")
+  font-weight: 700
+  font-style: normal
+  font-stretch: normal
+
+=Playfair-Display-Bold-123px()
+  font-family: "PlayfairDisplay-Bold", Georgia, "Times New Roman", Times
+  font-size: 123px
+  font-weight: 700
+
+=Playfair-Display-Bold-76px()
+  font-family: "PlayfairDisplay-Bold", Georgia, "Times New Roman", Times
+  font-size: 76px
+  font-weight: 700
+
+=Playfair-Display-Bold-47px()
+  font-family: "PlayfairDisplay-Bold", Georgia, "Times New Roman", Times
+  font-size: 47px
+  font-weight: 700
+
+=Poppins-Bold-44px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 44px
+  font-weight: 700
+  line-height: 1.86
+  letter-spacing: 0.22px
+
+=Poppins-Regular-44px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 44px
+  line-height: 1.86
+  letter-spacing: 0.22px
+
+=Poppins-Bold-33px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 33px
+  font-weight: 700
+  line-height: 1.85
+  letter-spacing: 0.17px
+
+=Poppins-Regular-33px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 33px
+  line-height: 1.85
+  letter-spacing: 0.17px
+
+=Playfair-Display-Bold-29px()
+  font-family: "PlayfairDisplay-Bold", Georgia, "Times New Roman", Times
+  font-size: 29px
+  font-weight: 700
+
+=Poppins-Bold-25px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 25px
+  font-weight: 700
+  line-height: 1.88
+  letter-spacing: 0.13px
+
+=Poppins-Regular-25px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 25px
+  line-height: 1.88
+  letter-spacing: 0.13px
+
+=Poppins-Bold-19px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 19px
+  font-weight: 700
+  line-height: 1.84
+  letter-spacing: 0.1px
+
+=Poppins-Regular-19px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 19px
+  line-height: 1.84
+  letter-spacing: 0.1px
+
+=Playfair-Display-Bold-18px()
+  font-family: "PlayfairDisplay-Bold", Georgia, "Times New Roman", Times
+  font-size: 18px
+  font-weight: 700
+
+=Poppins-Bold-14px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 14px
+  font-weight: 700
+  line-height: 1.86
+  letter-spacing: 0.07px
+
+=Poppins-Regular-14px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 14px
+  line-height: 1.86
+  letter-spacing: 0.07px
+
+=Playfair-Display-Bold-11px()
+  font-family: "PlayfairDisplay-Bold", Georgia, "Times New Roman", Times
+  font-size: 11px
+  font-weight: 700
+
+=Poppins-Bold-11px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 11px
+  font-weight: 700
+  line-height: 1.82
+  letter-spacing: 0.06px
+
+=Poppins-Regular-11px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 11px
+  line-height: 1.82
+  letter-spacing: 0.06px
+
+=Poppins-Bold-8px()
+  font-family: "Poppins-Bold", Verdana, Helvetica
+  font-size: 8px
+  font-weight: 700
+  line-height: 1.88
+  letter-spacing: 0.04px
+
+=Poppins-Regular-8px()
+  font-family: "Poppins-Regular", Verdana, Helvetica
+  font-size: 8px
+  line-height: 1.88
+  letter-spacing: 0.04px

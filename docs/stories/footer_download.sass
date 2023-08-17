@@ -1,0 +1,21 @@
+.Divider
+    align-self: stretch
+    flex-grow: 0
+    background-color: $mode-dark-shade-1
+    height: 1px
+
+.Download-On
+    align-self: stretch
+    flex-grow: 0
+    text-align: left
+    +Poppins-Regular-14px()
+
+.google-play
+    margin: 0 20px 0 0
+
+@media (prefers-color-scheme:dark)
+    .Divider
+        background-color: $mode-light-shade-1 !important
+
+[data-ogsc] .Divider
+    background-color: $mode-light-shade-1 !important

@@ -1,0 +1,64 @@
+@import global
+@import dark
+@import media
+@import ./components/Button/Button
+@import ./components/Title/Title
+@import ./components/Description/Description
+
+table > tr > td
+    border-collapse: collapse !important
+
+// view in browser
+.View-on-another-browser-email
+    text-align: right
+    @include Poppins-Regular-11px()
+
+.View-on-another-browser-email .link
+    @include Poppins-Bold-11px()
+    color: $link
+
+// Base
+.Base
+    width: 100%
+    margin: 0
+    border-collapse: inherit
+    border-radius: 5px
+    overflow: hidden
+
+.Hi
+    @include Poppins-Regular-14px()
+
+.request-email
+    +Playfair-Display-Bold-18px()
+
+.request-email-description
+    +Poppins-Regular-14px()
+
+.Avatar
+    border-radius: 100px
+    border: solid 1px $mode-light-light
+
+.Avatar-description
+    @include Poppins-Regular-14px()
+
+.Divider
+    align-self: stretch
+    flex-grow: 0
+    background-color: $mode-dark-shade-1
+    height: 1px
+
+.Download-On
+    align-self: stretch
+    flex-grow: 0
+    text-align: left
+    +Poppins-Regular-14px()
+
+.google-play
+    margin: 0 20px 0 0
+
+.Email-sent-to-who
+    color: $link !important
+
+.footer-text
+    text-align: left
+    +Poppins-Regular-11px()

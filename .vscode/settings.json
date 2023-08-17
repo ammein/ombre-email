@@ -1,0 +1,10 @@
+{
+    "[sass]":{
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true
+    },
+    "files.associations": {
+        "*.md": "mdx"
+    },
+}

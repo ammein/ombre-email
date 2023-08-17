@@ -1,0 +1,53 @@
+<tr>
+    <td>
+        <table role="presentation" border="0" cellspacing="16" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+                        <!-- @extend ../components/Content/Content.inc.html -->
+                            <!-- @extend ../components/Title/Title.inc.html -->
+                                <!-- @echo title -->
+                            <!-- @endextend -->
+                            <!-- @extend ../components/Description/Description.inc.html -->
+                                <!-- @echo description -->
+                            <!-- @endextend -->
+                        <!-- @endextend -->
+                    </td>
+                </tr>
+                <!-- @ifdef buttonText -->
+                <tr>
+                    <td>
+                        <!-- @extend ../components/Button/Button.inc.html -->
+                            <!-- @echo buttonText -->
+                        <!-- @endextend -->
+                    </td>
+                </tr>
+                <!-- @endif -->
+                <!-- @ifdef extraDescription -->
+                <tr>
+                    <td>
+                        <!-- @extend ../components/Content/Content.inc.html -->
+                            <!-- @ifdef extraTitle -->
+                                <!-- @extend ../components/Title/Title.inc.html -->
+                                    <!-- @echo extraTitle -->
+                                <!-- @endextend -->
+                            <!-- @endif -->
+                            <!-- @extend ../components/Description/Description.inc.html -->
+                                <!-- @echo extraDescription -->
+                            <!-- @endextend -->
+                        <!-- @endextend -->
+                    </td>
+                </tr>
+                <!-- @endif -->
+                <tr>
+                    <td>
+                        <!-- @extend ../components/Content/Content.inc.html -->
+                            <!-- @include ../global/request-email.inc.html -->
+                        <!-- @endextend -->
+                    </td>
+                </tr>
+                <!-- @include ../global/hanna-ombre.inc.html-->
+            </tbody>
+        </table>
+    </td>
+</tr>

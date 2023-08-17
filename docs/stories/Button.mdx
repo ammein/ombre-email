@@ -1,0 +1,96 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import {OmbreButton} from './Button';
+import { htmlConverterReact } from 'html-converter-react';
+
+## Table of Content
+- [Code Block](#code-block)
+    - [Supported Email Client](#supported-email-client)
+    - [Unsupported Email Client](#unsupported-email-client)
+- [Documentation](#documentation)
+    - [Send Grid](#send-grid)
+    - [SASS Documentation](#sass-documentation)
+      - [For non-gmail](#for-non-gmail)
+
+# Code Block
+
+### Supported Email Client
+<Canvas>
+  <Story name="Gradient" id="ombré-button--gradient" />
+</Canvas>
+
+### Unsupported Email Client
+<Canvas>
+  <Story name="Fallback" id="ombré-button--fallback" />
+</Canvas>
+
+# Documentation
+
+### Send Grid
+Enter your json data in Send Grid that has this value:
+```json
+{
+  "button_link" : "https://link-to-webpage.com"
+}
+````
+
+### Outlook Markup
+```html
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{buttonLink}}" style="v-text-anchor:middle;width:214;height:44;" stroke="f" arcsize="50%" fillcolor="#f89825">
+</v:roundrect>
+```
+This is to ensure that it still follows the button design with fallback single color to any older email client support. Pay attention to `arcsize="50%"` that it is actually make it `border-radius` value. Unfortunately, the button needs to specify `width` & `height` for older email client to work.
+
+```html
+<v:fill color="#f89825" color2="#a91e5e" colors="18% #f26322, 48% #e5333b, 89% #c81d5e" type="gradient" angle="270" />”
+```
+This one is to ensure that whatever outlook email client that support gradient, use this color attributes of gradient on angle `270`
+
+```html
+<w:anchorlock/>
+```
+An application might have automatic behaviors which reposition the anchor for a VML object based on user interaction - for example, moving it from one page to another as needed. This element must tell applications not to perform any such behaviors.
+
+```html
+<center style="text-decoration:none;">
+</center>
+```
+Of course to make the content center
+
+
+### SASS Documentation
+
+> Refer link below for more info
+
+[Fixing Dark Mode Gmail Issue](https://www.hteumeuleu.com/2021/fixing-gmail-dark-mode-css-blend-modes/)
+
+```sass
+u + .body .gmail-blend-difference
+    color: $text-color-dark-mode
+    background: #000
+
+u + .body .gmail-blend-screen
+    color: $text-color-dark-mode
+    background: #000
+```
+Is a hacky way of maintaining font color when gmail execute fully invert email when in dark mode. You will see them in the DOM where it will be use below...
+> Using `u + .body .gmail-blend-` is a way of **targetting gmail client** only because gmail produce `<u></u>` before your html content.
+
+```html
+<span class="gmail-blend-screen">
+    <span class="gmail-blend-difference">
+        <Content Here>
+    </span>
+</span>
+```
+Implementation of hacky maintain fully invert text color.
+
+#### For non-gmail
+```sass
+.gmail-body-blend-screen
+    background-color: transparent
+    color: $mode-light-light
+.gmail-body-blend-difference
+    background-color: transparent
+    color: $mode-light-light
+```
+This will be always using `background-color` **transparent** so that it does not effect to any other email client that **don't have fully invert issue**

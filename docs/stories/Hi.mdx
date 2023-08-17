@@ -1,0 +1,22 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+## Table of Contents
+- [Code Blocks](#code-blocks)
+    - [Send Grid](#send-grid)
+
+# Code Blocks
+
+<Canvas>
+    <Story name="Dark Hi" id="hi--dark-hi"/>
+</Canvas>
+
+<Canvas>
+    <Story name="Light Hi" id="hi--light-hi"/>
+</Canvas>
+
+### Send Grid
+Send grid already have substitution tags ready to use. This **`{{last_name}}`** will return recipient last name.
+[Substitution Tags Reference](https://docs.sendgrid.com/ui/sending-email/editor#substitution-tags)
+```html
+<td class="Hi">Hi {{last_name}},</td>
+```

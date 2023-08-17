@@ -1,0 +1,44 @@
+<!-- Typography.stories.mdx -->
+
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+
+<Meta title="Typography/Title" />
+
+export const typography = {
+  type: {
+    primary: '"PlayfairDisplay-Bold", Georgia, "Times New Roman", Times',
+  },
+  weight: {
+    bold: '700',
+  },
+  size: {
+    s1: 11,
+    s2: 18,
+    m1: 29,
+    m2: 47,
+    l1: 76,
+    l2: 123
+  },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+**Font:** Playfair Display, Georgia, "Times New Roman", Times
+
+**Weights:** 700(bold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>

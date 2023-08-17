@@ -1,0 +1,83 @@
+<!-- Typography.stories.mdx -->
+
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+
+<Meta title="Typography/Description" />
+
+export const bold_typography = {
+  type: {
+    primary: '"Poppins-Bold", Verdana, Helvetica',
+  },
+  weight: {
+    bold: '700',
+  },
+  size: {
+    s1: 8,
+    s2: 11,
+    s3: 14,
+    m1: 19,
+    m2: 25,
+    l1: 33,
+    l2: 44,
+  },
+};
+
+export const regular_typography = {
+  type: {
+    primary: '"Poppins-Regular", Verdana, Helvetica',
+  },
+  weight: {
+    regular: '400'
+  },
+  size: {
+    s1: 8,
+    s2: 11,
+    s3: 14,
+    m1: 19,
+    m2: 25,
+    l1: 33,
+    l2: 44,
+  },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+**Font:** Poppins Bold, Verdana, Helvetica
+
+**Weights:** 700(bold)
+
+<Typeset
+  fontSizes={[
+    Number(bold_typography.size.s1),
+    Number(bold_typography.size.s2),
+    Number(bold_typography.size.s3),
+    Number(bold_typography.size.m1),
+    Number(bold_typography.size.m2),
+    Number(bold_typography.size.l1),
+    Number(bold_typography.size.l2),
+  ]}
+  fontWeight={bold_typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={bold_typography.type.primary}
+/>
+
+**Font:** Poppins Regular, Verdana, Helvetica
+
+**Weights:** 400(regular)
+
+<Typeset
+  fontSizes={[
+    Number(regular_typography.size.s1),
+    Number(regular_typography.size.s2),
+    Number(regular_typography.size.s3),
+    Number(regular_typography.size.m1),
+    Number(regular_typography.size.m2),
+    Number(regular_typography.size.l1),
+    Number(regular_typography.size.l2),
+  ]}
+  fontWeight={regular_typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={regular_typography.type.primary}
+/>

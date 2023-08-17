@@ -1,0 +1,24 @@
+@import global
+
+$phone: 414px
+$small-phone: 320px
+$tablet: 648px
+
+@media screen and (max-width:$small-phone)
+    .WebTransactional-Email
+        max-width: 320px !important
+
+@media screen and (min-width:$small-phone) and (max-width:$tablet)
+    .WebTransactional-Email
+        width: 100% !important
+
+// To fix Yahoo Targeting
+@supports not (mix-blend-mode: screen)
+    .gmail-blend-screen
+        background: transparent !important
+        mix-blend-mode: screen
+
+@supports not (mix-blend-mode:difference)
+    .gmail-blend-difference
+        background: transparent !important
+        mix-blend-mode: difference
