@@ -2,9 +2,6 @@
 import {
   OmbreButton
 } from './Button';
-import {
-  htmlConverterReact
-} from 'html-converter-react';
 import globalSassRawCode from "!!raw-loader!../../templates/ombre/global.sass";
 import ButtonSassRawCode from "!!raw-loader!../../templates/ombre/components/Button/Button.sass";
 import DarkSassRawCode from "!!raw-loader!../../templates/ombre/dark.sass";
@@ -60,7 +57,7 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/html/writing-stories/introduction#using-args
-const Template = (args) => htmlConverterReact(OmbreButton(args))
+const Template = (args) => OmbreButton(args)
 
 export const Gradient = Template.bind({});
 // More on args: https://storybook.js.org/docs/html/writing-stories/args

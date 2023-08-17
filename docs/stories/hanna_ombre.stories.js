@@ -3,9 +3,6 @@
 import {
     hannaOmbre
 } from './hanna_ombre';
-import {
-    htmlConverterReact
-} from 'html-converter-react';
 import globalSassRawCode from "!!raw-loader!../../templates/ombre/global.sass";
 import Hanna_OmbreSassRawCode from "!!raw-loader!./hanna_ombre.sass";
 import DarkSassRawCode from "!!raw-loader!../../templates/ombre/dark.sass";
@@ -68,7 +65,7 @@ export default {
     }
 }
 
-const Template = (args) => htmlConverterReact(hannaOmbre(args));
+const Template = (args) => hannaOmbre(args)
 
 export const darkHanna = Template.bind({})
 

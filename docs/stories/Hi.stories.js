@@ -2,7 +2,6 @@
 import GlobalSassRawCode from "!!raw-loader!../../templates/ombre/global.sass";
 import DarkSassRawCode from "!!raw-loader!../../templates/ombre/dark.sass";
 import MainSassRawCode from "!!raw-loader!../../templates/ombre/main.sass";
-import { htmlConverterReact } from "html-converter-react";
 import { Hi } from './Hi';
 import HiDocs from './Hi.mdx';
 
@@ -56,7 +55,7 @@ const args = {
     }
 };
 
-const Template = (args) => htmlConverterReact(Hi(args))
+const Template = (args) => Hi(args)
 
 export const darkHi = Template.bind({});
 

@@ -3,9 +3,6 @@
 import {
     Download
 } from './footer_download';
-import {
-    htmlConverterReact
-} from 'html-converter-react';
 import globalSassRawCode from "!!raw-loader!../../templates/ombre/global.sass";
 import FooterDownloadSassCode from "!!raw-loader!./footer_download.sass";
 import DarkSassRawCode from "!!raw-loader!../../templates/ombre/dark.sass";
@@ -71,7 +68,7 @@ export default {
     }
 }
 
-const Template = (args) => htmlConverterReact(Download(args));
+const Template = (args) => Download(args);
 
 export const darkDownload = Template.bind({})
 

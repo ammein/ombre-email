@@ -2,9 +2,6 @@
 import {
     Content
 } from './Content';
-import {
-    htmlConverterReact
-} from 'html-converter-react';
 import globalSassRawCode from "!!raw-loader!../../templates/ombre/global.sass";
 import TitleSassRawCode from "!!raw-loader!../../templates/ombre/components/Title/Title.sass";
 import DescriptionSassRawCode from "!!raw-loader!../../templates/ombre/components/Description/Description.sass";
@@ -79,7 +76,7 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/html/writing-stories/introduction#using-args
-const Template = (args) => htmlConverterReact(Content(args))
+const Template = (args) => Content(args)
 
 export const darkContent = Template.bind({});
 // More on args: https://storybook.js.org/docs/html/writing-stories/args
