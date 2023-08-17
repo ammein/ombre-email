@@ -6,6 +6,6 @@
 IDEAS.md
 npm_debug.log
 .sass-cache
-.package-lock.json
+package-lock.json
 npm-debug.log
 /docs-build/
