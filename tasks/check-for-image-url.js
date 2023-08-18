@@ -49,7 +49,7 @@ function inlineImg(options = {}) {
       }
       // If images with an inline attr are found that is the selection we want
       const imgTags = inlineFlag.length ? inlineFlag : $(selector);
-      let count = inlineFlag.length ? imgTags.length - 1: $(selector).length - 1;
+      let count = inlineFlag.length ? imgTags.length + 1: $(selector).length + 1;
 
       // Author - Amin
       // use this htmlOverride to solve v:fill issue not updating
@@ -110,6 +110,9 @@ function inlineImg(options = {}) {
                 $img.attr('alt', `Image not found, Please check Url`);
                 log.warn(`Failed to read image. Check the format of ${src}.`);
               }
+
+              // Count async ops
+              count--;
             } else if (skipFormatting && !base64) {
               htmlOverride = htmlOverride.length > 0 ? htmlOverride.replace(new RegExp(src, 'g'), result) : $.html().replace(new RegExp(src, 'g'), result);
               after$ = cheerio.load(htmlOverride);
@@ -121,14 +124,16 @@ function inlineImg(options = {}) {
                   width: "100%"
                 })
               }
+
+              // Count async ops
+              count--;
             }
 
             if (!--count) {
               file.contents = Buffer.from(after$.html());
               callback(null, file);
-              // Count async ops
-              count--;
             }
+
           }
         });
       });
