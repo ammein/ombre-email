@@ -49,12 +49,12 @@ function inlineImg(options = {}) {
       }
       // If images with an inline attr are found that is the selection we want
       const imgTags = inlineFlag.length ? inlineFlag : $(selector);
-      let count = 0;
+      let count = inlineFlag.length ? imgTags.length - 1: $(selector).length - 1;
 
       // Author - Amin
       // use this htmlOverride to solve v:fill issue not updating
       // eslint-disable-next-line no-unused-vars
-      var htmlOverride = "";
+      let htmlOverride = "";
 
       imgTags.each(function () {
         const $img = $(this);
@@ -81,10 +81,7 @@ function inlineImg(options = {}) {
           return $img.removeAttr(NOT_INLINE_ATTR);
         }
 
-        // Count async ops
-        count++;
-
-        getSrcBase64(options.basedir || file.base, getHTTP, base64, src, (err, result, resFormat, skipFormatting) => {
+        getSrcBase64(options.buildDir, options.basedir || file.base, getHTTP, base64, src, (err, result, resFormat, skipFormatting) => {
           var after$ = cheerio.load(htmlOverride);
           if (err) {
             log.warn(`Failed to load http image. Check the format of ${src}.`);
@@ -114,16 +111,23 @@ function inlineImg(options = {}) {
                 log.warn(`Failed to read image. Check the format of ${src}.`);
               }
             } else if (skipFormatting && !base64) {
-              htmlOverride = htmlOverride.length > 0 ? htmlOverride : $.html();
+              htmlOverride = htmlOverride.length > 0 ? htmlOverride.replace(new RegExp(src, 'g'), result) : $.html().replace(new RegExp(src, 'g'), result);
               after$ = cheerio.load(htmlOverride);
               if (retina) {
                 checkRetina($img, src)
+
+                // Set style of width:100% for Outlook issue
+                after$("[src=\"" + result + "\"]").css({
+                  width: "100%"
+                })
               }
             }
 
             if (!--count) {
               file.contents = Buffer.from(after$.html());
               callback(null, file);
+              // Count async ops
+              count--;
             }
           }
         });
@@ -187,23 +191,27 @@ function getHTTPBase64(url, base64, callback) {
   req.on('error', err => callback(err));
 }
 
-function getSrcBase64(base, getHTTP, base64, src, callback) {
+function getSrcBase64(buildDir, base, getHTTP, base64, src, callback) {
   // TODO: @deprecated — since v11.0.0 url.parse should be replaced with url.URL() ctor
-  if (!new url.URL(src).hostname) {
-    // Get local file
-    const filePath = path.join(base, src);
-    if (fs.existsSync(filePath)) {
-      fs.readFile(filePath, 'base64', callback);
+  try {
+    if (!new url.URL(src).hostname) {
+      // Get local file
+      const filePath = path.join(base, src);
+      if (fs.existsSync(filePath)) {
+        fs.readFile(filePath, 'base64', callback);
+      } else {
+        callback(null);
+      }
     } else {
-      callback(null);
+      // Get remote file
+      if (getHTTP) {
+        return getHTTPBase64(src, base64, callback);
+      } else {
+        callback(null, src, null, true);
+      }
     }
-  } else {
-    // Get remote file
-    if (getHTTP) {
-      return getHTTPBase64(src, base64, callback);
-    } else {
-      callback(null, src, null, true);
-    }
+  } catch(e) {
+    callback(null, path.relative(buildDir, path.resolve(base, src)), null, true);
   }
 }
 

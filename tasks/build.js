@@ -36,7 +36,7 @@ function buildTask(options) {
         return options
           .src([cwd + '/**/*.html', '!' + cwd + '/**/*.inc.html'])
           .pipe(preprocess({ context }))
-          .pipe(inlineImg({ getHTTP: confItems[0].inlineRemoteUrl, base64: confItems[0].base64 }))
+          .pipe(inlineImg({ getHTTP: confItems[0].inlineRemoteUrl, base64: confItems[0].base64, basedir: confItems[0].basedir || path.resolve(options.sourceDir, dir), buildDir: path.resolve(options.distDir, dir) }))
           .pipe(inlinesource({
             ignore: ['css2']
           }))
